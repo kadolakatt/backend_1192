@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    background-color: #FAF0CA;
+    color: #0D3B66;
+}
+
+#formRegistro {
+    width: 50%;
+    background-color: #FAF0CA;
+    border-style: dashed;
+    border-color: #F95738;
+    border-radius: 20px;
+    margin: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+/*
+En comentarios porque no es util en el componente practico 7
+input[type=text],[type=password],[type=email] {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #F95738;
+    border-radius: 3px;
+    line-height: 30px;
+    width: 100%;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+*/
+/*
+Creamos esta regla de estilo para asignarla 
+solo a los input de tipo text e email.
+*/
+.input_text {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #F95738;
+    border-radius: 3px;
+    line-height: 30px;
+    width: 100%;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+/*
+Estilo del div que contiene el input del password
+y el img con el ojo
+*/
+.grupo_password {
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #F95738;
+    border-radius: 3px;
+    width: 100%;
+    padding: 0px;
+}
+/*
+Regla que modifica la apariencia de los elementos img
+que se encuentran dentro de los elementos cuyo atributo class
+incluye grupo_password (la imagen del ojo)
+*/
+.grupo_password img {
+    height: 20px;
+    vertical-align: middle;
+}
+/*
+Modifica la apariencia del input dentro del elemento con 
+atributo class grupo_password
+*/
+.grupo_password input {
+    border-style: none;
+    width: 95%;
+    line-height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.grupo {
+    margin-top: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.boton {
+    border-style: none;
+    background-color: #634bee;
+    color: #FAF0CA;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.error {
+    background-color: rgba(256, 40, 0, 0.2);
+}
+
+#errores {
+    color: red;
+    font-style: italic;
+    font-size: 10px;
+    text-align: center;
+}
