@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/miestilo.css') }}" />
+</head>
+<body>
+    <form name="formRegistro" id="formRegistro" method="POST" 
+          action="{{ url_for('registro_covid') }}" onsubmit="return validar_formulario();" >
+       <h1>
+              Registro para Vacunación COVID-19
+       </h1>
+       <br><br>           
+        <label><strong>Nombre</strong></label>
+        <div class="tooltip">
+              <input id="txtNombre" type="text" class="input_formulario" 
+              name="nombre" 
+              value="" placeholder="Digite el nombre de la persona."  />
+              <span class="tooltip_text">El nombre de la persona es obligatorio y debe ser mayor a 8 caracteres.</span>
+        </div>
+        
+        <br>
+        <label>Nombre de Usuario</label>
+        <input id="txtUsuario" type="text"
+               name="usuario" class="input_formulario" 
+               value="" title="Recuerde que es obligatorio y que debe tener más de 8 carácteres."  />
+        <br>
+        <label>Sexo</label><br>
+        <input type="radio" 
+               name="sexo" 
+               value="F"  />
+        <label class="declaracion">Femenino</label>
+        <br>
+        <input type="radio"
+               name="sexo"
+               value="M" />
+        <label class="declaracion">Masculino</label>
+        <br>
+        <input type="radio"
+               name="sexo"
+               value="O" />
+        <label class="declaracion">Otro</label>
+        <br>
+        <label>Correo electrónico</label>
+        <input id="txtEmail" class="input_formulario" type="email" name="email" value="" />
+        <br>
+        <label>Contraseña</label>
+        <div class="grupo_contrasena">
+              <input id="txtPassword" type="password" name="contrasena" value="" />
+              <img id="imgPassword" src="{{ url_for('static', filename='images/eye.png') }}" title="Ver/Mostrar Contraseña" />
+              <input id="hiPassword" type="hidden" value="{{ url_for('static', filename='images/eye2.png') }}" />
+        </div>
+        <p id="fuerzaPassword"></p>
+        
+        <br>
+        <input id="chkDeclaracion" type="checkbox" name="declaracion" value="S" />
+        <label class="declaracion">
+          Declaro haber leído y aceptar las
+          condiciones generales del programa y la normativa sobre 
+          protección de datos
+        </label>
+        <br>
+        <input class="boton" type="submit" value="Enviar">
+        <p id="errores">
+              {% if error %}
+               {{ error }}
+              {% endif %}
+        </p>
+    </form>
+</body>
+<script type="text/javascript" src="{{ url_for('static', filename='js/validacion.js') }}"></script>
+</html>
