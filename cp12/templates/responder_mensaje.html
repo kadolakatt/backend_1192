@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% block contenido %}
+<div class="formulario">
+    <h2>Responder Mensaje</h2>
+    {% if form %}
+    <form action="{{ url_for('responder_mensaje', id_mensaje=id) }}" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="grupo">
+            {{ form.nombre.label }}
+            {{ form.nombre(class="control", readonly="")}}
+        </div>
+        <div class="grupo">
+            {{ form.correo.label }}
+            {{ form.correo(class="control", readonly="")}}
+        </div>
+        <div class="grupo">
+            {{ form.mensaje_original.label }}
+            {{ form.mensaje_original(class="control", rows="3", readonly="") }}
+        </div>
+        <div class="grupo">
+            {{ form.respuesta.label }}
+            {{ form.respuesta(class="control", rows="3") }}
+        </div>
+        <div class="grupo">
+            {{ form.enviar(class="boton") }}
+        </div>
+    </form>
+    {% endif %}
+    <div class="mensaje">
+        {% if mensaje %}
+            {{ mensaje }}
+        {% endif %}
+    </div>
+    <div class="grupo">
+        <a href="{{ url_for('get_listado_mensajes') }}">Ir al listado</a>
+    </div>
+</div>
+{% endblock %}
