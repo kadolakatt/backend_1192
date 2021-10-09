@@ -66,6 +66,21 @@ def get_mensaje_json(id):
 def get_listado_mensajes():
     return render_template('listado_mensajes.html', lista=mensaje.listado())
 
+#Devuelme el listado con paginacion sencilla
+@app.route('/mensajes/listado/paginado/', methods=["GET"])
+def get_listado_mensajes_pag():
+    #Obtenemos del querystring de la URL los parametros page y size
+    page = request.args.get('page', type=int, default=1)
+    size = request.args.get('size', type=int, default=20)
+    #Creamos un dict con los valores 
+    pagination = {"page": page, "size": size}
+
+    #Obtenemos los registros a mostrar en la pagina
+    lista_mensajes = mensaje.listado_paginado(size, page)
+
+    #Retornamos render template del listado paginado
+    return render_template('listado_mensajes_paginado.html', lista=lista_mensajes, pagination=pagination)
+
 @app.route('/mensajes/ver/<id>', methods=["GET"])
 def get_mensaje(id):
     objeto_mensaje = mensaje.cargar(id)

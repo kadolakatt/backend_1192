@@ -102,3 +102,24 @@ body {
 #tipo li {
     list-style-type: none;
 }
+
+.pagination {
+    display: inline-block;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+   
+}
+
+.pagination a {
+    color: rgb(61,99,172);
+    float: left;
+    padding: 8px 16px;
+    border: 1px solid rgb(61,99,172);
+    text-align: center;
+  }
+
+  .pagination a.active {
+    background-color: rgb(61,99,172);
+    color: white;
+  }

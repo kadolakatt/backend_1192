@@ -48,3 +48,8 @@ class mensaje():
         sql = "SELECT * FROM mensajes ORDER BY id;"
         return db.ejecutar_select(sql, None)
     
+    @staticmethod
+    def listado_paginado(filas_por_pagina, numero_pagina):
+        #Utiliza la sentencia LIMIT para extraer los registros paginados.
+        sql = "SELECT * FROM mensajes ORDER BY id LIMIT " + str((numero_pagina-1)*filas_por_pagina) + ", " + str(filas_por_pagina) + ";"
+        return db.ejecutar_select(sql, None)

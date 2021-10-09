@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+{% block contenido %}
+<div class="formulario">
+    <h2>Listado de Mensajes</h2>
+    <!-- INICIO - Renderizamos los botones del paginador -->
+    <!-- Ver static/estilos.css -->
+    <div class="pagination">
+        {% if pagination.page>1 %}
+            <a href="{{ url_for('get_listado_mensajes_pag',page=pagination.page-1,size=pagination.size) }}"> &lt;&lt; </a>
+        {% else %}
+            <a> &lt;&lt; </a>
+        {% endif %}
+
+        {% if pagination.size > lista|length %}
+            <a> &gt;&gt; </a>
+        {% else %}
+            <a href="{{ url_for('get_listado_mensajes_pag',page=pagination.page+1,size=pagination.size) }}"> &gt;&gt; </a>
+        {% endif %}
+    </div>
+    <!-- FIN - Renderizamos los botones del paginador -->
+    <table class="tabla">
+        <tr>
+            <th>Acciones</th>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Mensaje</th>
+        </tr>
+        {% if lista %}
+            {% for item in lista %}
+                <tr>
+                    <td>
+                        <a href="{{ url_for('get_mensaje',id=item.id)}}">Ver</a>
+                        <a href="{{ url_for('responder_mensaje', id_mensaje=item.id) }}">Responder</a>
+                    </td>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.nombre }}</td>
+                    <td>{{ item.correo }}</td>
+                    <td>{{ item.mensaje }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+                <tr>
+                    <td colspan="5">No se encontraron mensajes en la base de datos</td>
+                </tr>
+        {% endif %}
+    </table>
+    <!-- INICIO - Renderizamos los botones del paginador -->
+    <!-- Ver static/estilos.css -->
+    <div class="pagination">
+        {% if pagination.page>1 %}
+            <a href="{{ url_for('get_listado_mensajes_pag',page=pagination.page-1,size=pagination.size) }}"> &lt;&lt; </a>
+        {% else %}
+            <a> &lt;&lt; </a>
+        {% endif %}
+
+        {% if pagination.size > lista|length %}
+            <a> &gt;&gt; </a>
+        {% else %}
+            <a href="{{ url_for('get_listado_mensajes_pag',page=pagination.page+1,size=pagination.size) }}"> &gt;&gt; </a>
+        {% endif %}
+    </div>
+    <!-- FIN - Renderizamos los botones del paginador -->
+</div>
+{% endblock %}
