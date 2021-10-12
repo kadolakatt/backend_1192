@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block contenido %}
+<div class="formulario">
+    <h2>Consulta de Mensaje</h2>
+    {% if item %}    
+        <div class="grupo">
+            <label>Nombre:</label>
+            {{ item.nombre }}
+        </div>
+        <div class="grupo">
+            <label>Correo:</label>
+            {{ item.correo }}
+        </div>
+        <div class="grupo">
+            <label>Mensaje:</label>
+            <p>{{ item.mensaje }}</p>
+        </div>
+    {% else %}
+        <div class="grupo">
+            {% if error %} 
+                {{ error }}
+            {% endif %}
+        </div>
+    {% endif %}
+    <div class="grupo">
+        <a href="{{ url_for('get_listado_mensajes') }}">Ir al listado</a>
+    </div>
+</div>
+{% endblock%}

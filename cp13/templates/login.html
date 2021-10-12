@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block contenido %}
+<div class="formulario">
+    <form action="{{ url_for('login') }}" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="grupo">
+            <!-- Se reemplaza esta definición por el uso de wtforms
+            <label>Usuario</label>
+            <input type="text" class="control" name="usuario" />-->
+            {{ form.usuario.label }}
+            {{ form.usuario(class="control") }}
+        </div>
+        <div class="grupo">
+            <!-- Se reemplaza esta definición por el uso de wtforms
+            <label>Contraseña</label>
+            <input type="password" class="control" name="contrasena" />-->
+            {{ form.contrasena.label }}
+            {{ form.contrasena(class="control") }}
+        </div>
+        <div class="grupo">
+            <!-- Se reemplaza esta definición por el uso de wtforms
+                <input type="submit" class="boton" />-->
+            {{ form.enviar(class="boton") }}
+        </div>
+        <div class="grupo">
+            {% if mensaje %}
+                {{mensaje}}
+            {% endif %}
+        </div>
+    </form>
+</div>
+{% endblock %}

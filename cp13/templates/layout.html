@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi WebApp</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/estilos.css') }}" />
+    {% block estilos %}{% endblock %}
+</head>
+<body>
+    <div class="barra">
+        <h3 class="titulo">Mi WebApp</h3>
+        <div class="opcion-barra">
+            <a href="{{ url_for('get_listado_mensajes') }}">Mensajes</a>
+        </div>
+        <div class="opcion-barra">
+            <a href="{{ url_for('contactanos') }}">Contactanos</a>
+        </div>
+        <div class="opcion-barra">
+            <a href="{{ url_for('login') }}">Login</a>
+        </div>        
+        <div class="opcion-barra">
+            <a href="{{ url_for('index') }}" >Home</a>
+        </div>
+    </div>
+    <div class="contenedor">
+        <div class="encabezado">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" />
+        </div>
+        {% block contenido %}
+        {% endblock %}
+    </div>
+</body>
+{% block scripts %}
+{% endblock %}
+</html>
