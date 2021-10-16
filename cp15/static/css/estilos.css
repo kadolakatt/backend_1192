@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+body {
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.barra {
+    background: rgb(61, 99, 172);
+    height: 3em;
+    max-height: 3em;
+    border-bottom: 1px solid #ccc;
+    color: white;
+    padding-top: 1em;
+}
+
+.titulo {
+    margin-top: 0px;
+    margin-left: 10px;
+    width: fit-content;
+    display: inline;
+}
+
+.opcion-barra {
+    width: fit-content;
+    display: inline;
+    float: right;
+    padding-right: 20px;
+    height: 100%;
+}
+
+.opcion-barra a {
+    text-decoration: none;
+    color: white;
+}
+
+.contenedor {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3rem;
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.formulario {
+    border: 3px solid rgb(61, 99, 172);
+    border-radius: 1rem;
+    padding: 1rem
+}
+
+.formulario label {
+    font-weight: bold;
+}
+
+.grupo {
+    margin-bottom: 1rem;
+}
+
+.control {
+    width: 100%;
+    border: 1px solid rgb(61, 99, 172);
+    line-height: 30px;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+.boton {
+    background-color: rgb(61, 99, 172);
+    color: white;
+    border-style: none;
+    line-height: 30px;
+    border-radius: 50px;
+    width: 100%;
+}
+
+.tabla {
+    width: 100%;
+    border: 1px solid rgb(61, 99, 172);
+    font-size: 0.7rem;
+    padding: 0px;
+    border-spacing: 0px;
+}
+
+.tabla th,
+.tabla td {
+    border-right: 1px solid rgb(61, 99, 172);
+    border-bottom: 1px solid rgb(61, 99, 172);
+    padding: 0.5rem; /* 1em = 16px | 1rem = 16px pantallas grandes */
+    text-align: center;
+    vertical-align: middle;
+}
+
+.tabla th {
+    background-color: rgb(61, 99, 172);
+    color: white;
+}
+
+#tipo li {
+    list-style-type: none;
+}
+
+.pagination {
+    display: inline-block;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+   
+}
+
+.pagination a {
+    color: rgb(61,99,172);
+    float: left;
+    padding: 8px 16px;
+    border: 1px solid rgb(61,99,172);
+    text-align: center;
+  }
+
+  .pagination a.active {
+    background-color: rgb(61,99,172);
+    color: white;
+  }
